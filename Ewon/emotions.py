@@ -3,7 +3,7 @@ emotions =  [   ['default'],
                 ['happy', 'awesome'],
                 ['sad', 'upset', 'disappointed'],
                 ['angry', 'furious'],
-                ['fear', 'scared'],
+                ['fear', '무섭다'],
                 ['disgust'],
                 ['surprise', 'exited', 'surprised'],    
             ]
