@@ -7,6 +7,21 @@ import sys
 import os
 import re
 
+#adafruit
+import Adafruit_PCA9685
+robot_handle = Adafruit_PCA9685.PCA9685()
+servoMin = 150
+servoMax = 550
+def map(value, min_angle, max_angle, min_pulse, max_pulse):
+    angle_range = max_angle-min_angle
+    pulse_range = max_pulse-min_pulse
+    scale_factor = float(angle_range)/float(pulse_range)
+    return min_pulse+(value/scale_factor)
+
+def set_angle(channel, angle):
+    pulse = int(map(angle,0,180,servoMin,servoMax))
+    robot_handle.set_pwm_freq(50)
+
 e = "\xff\xff\xff"
 
 LF = 4 #left flap
@@ -125,7 +140,11 @@ def happy():
     p.start()
     for i in range(0,2):
         set_angles(lf=lfmin, lt=ltmax/2, rf=rfmax, rt=rtmax/2, nk=nkst)
+        set_angle(5,10)
+        set_angle(6,10)
         time.sleep(0.5)
+        set_angle(5,90)
+        set_angle(6,90)
         set_angles(lf=lfmax, lt=ltmax/2, rf=rfmin, rt=rtmax/2, nk=nkst)
         time.sleep(0.5)
     time.sleep(1)
