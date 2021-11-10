@@ -236,7 +236,7 @@ class Assistant():
                             print("Emotion Detected: ", emotions[current_emotion][0])
                     if resp.dialog_state_out.supplemental_display_text:
                         display_text=resp.dialog_state_out.supplemental_display_text
-                        self.logger.info('Response text:' + ''.join(display_text))
+                        self.logger.info('Response text:' + ''.join(display_text)) # 구글 어시의 응답
                     if len(resp.audio_out.audio_data) > 0:
                         self.conversation_stream.write(resp.audio_out.audio_data)
                     if resp.dialog_state_out.conversation_state:
