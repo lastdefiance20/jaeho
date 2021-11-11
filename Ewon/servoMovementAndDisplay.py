@@ -8,8 +8,8 @@ import os
 import re
 
 #adafruit
-import adafruit_pca9685
-robot_handle = adafruit_pca9685.PCA9685()
+import Adafruit_PCA9685
+robot_handle = Adafruit_PCA9685.PCA9685()
 servoMin = 150
 servoMax = 550
 def map(value, min_angle, max_angle, min_pulse, max_pulse):
