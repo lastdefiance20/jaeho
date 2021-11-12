@@ -254,7 +254,7 @@ def dead():
     
 def hello():
     print("animation: hello")
-    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax-90, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin+90, nk = nkmin)
+    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkmin)
     p = multiprocessing.Process(target=display, args=([24,25,26], ))
     p.start()
     time.sleep(1)
