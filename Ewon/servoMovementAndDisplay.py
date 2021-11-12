@@ -241,7 +241,7 @@ def nother():
 def weather():
     print("animation: weather")
     set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst+5)
-    p = multiprocessing.Process(target=display, args=([43,44], ))
+    p = multiprocessing.Process(target=display, args=([49,50,49,50,49,50,49,50], ))
     p.start()
     time.sleep(1)
     
@@ -256,6 +256,20 @@ def hello():
     print("animation: hello")
     set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkmin)
     p = multiprocessing.Process(target=display, args=([24,25,26], ))
+    p.start()
+    time.sleep(1)
+
+def google():
+    print("animation: google")
+    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst)
+    p = multiprocessing.Process(target=display, args=([45,46,47,48], ))
+    p.start()
+    time.sleep(1)
+
+def music():
+    print("animation: music")
+    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst-5)
+    p = multiprocessing.Process(target=display, args=([51,52,53], ))
     p.start()
     time.sleep(1)
 
