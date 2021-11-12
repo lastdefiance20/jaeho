@@ -32,7 +32,7 @@ signal.signal(signal.SIGINT, signal_handler)
 
 #ADD DEVICE ID AND MODEL ID HERE
 detector = snowboydecoder.HotwordDetector(model, sensitivity=0.5)
-assistant = Assistant(language_code="en-AU",
+assistant = Assistant(language_code="ko-KR",
                       device_model_id="YOUR_MODEL_ID",
                       device_id="YOUR_DEVICE_ID")
 
