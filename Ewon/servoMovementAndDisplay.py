@@ -142,7 +142,7 @@ def happy():
     p.start()
     for i in range(0,2):
         set_angles(lf=lfmin, lt=ltmax/2, rf=rfmax, rt=rtmax/2, nk=nkst)
-        time.sleep(0.5)
+        time.sleep(0.5)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                `
         set_angles(lf=lfmax, lt=ltmax/2, rf=rfmin, rt=rtmax/2, nk=nkst)
         time.sleep(0.5)
     time.sleep(1)
@@ -182,6 +182,7 @@ def default():
         time.sleep(0.5)
         set_angles(lf=lfmax, lt=ltmax, rf=rfmax, rt=rtmin, nk=nkst)
         time.sleep(0.5)
+        
 def random4():
     set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmax, nk = nkst)
     p = multiprocessing.Process(target=display, args=([5,4,3,2,1,0], ))
@@ -204,13 +205,23 @@ def fear():
     print("animation: fear")
     angry()
 
+
 def disgust():
     print("animation: disgust")
     angry()
 
+
 def surprise():
     print("animation: surprise")
     angry()
+
+
+def other():
+    print("animation: other")
+    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst)
+    p = multiprocessing.Process(target=display, args=([13,14,15,16,17,18,19], ))
+    p.start()
+    time.sleep(1)
 
 
 

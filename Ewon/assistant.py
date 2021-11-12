@@ -68,15 +68,17 @@ def animateServosAndDisplay(emotion):
         happy()
     elif emotion == 3: #sad
         sad()
-    elif emotion == 4:
+    elif emotion == 4: #angry
         angry()
-    elif emotion == 5:
+    elif emotion == 5: 
         fear()
     elif emotion == 6:
         disgust()
     elif emotion == 7:
         surprise()
-
+    else:
+        other()
+        
 class Animation (threading.Thread):
     def __init__(self, startEmotion):
         init()
@@ -108,7 +110,7 @@ def set_emotion(current_emotion, str):
                         for j in range(len(emotions[i])):
                                 if split.lower() == emotions[i][j]:
                                         return i
-        return 1
+        return 8
     
 
 
