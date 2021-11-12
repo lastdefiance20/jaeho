@@ -44,7 +44,7 @@ except SystemError:
     
 #new imports
 import multiprocessing
-from servoMovementAndDisplay import default, init, listen, happy, sad, angry, fear, disgust, surprise, nother, weather
+from servoMovementAndDisplay import default, init, listen, happy, sad, angry, fear, disgust, surprise, nother, weather, dead
 import threading
 
 ASSISTANT_API_ENDPOINT = 'embeddedassistant.googleapis.com'
@@ -78,6 +78,8 @@ def animateServosAndDisplay(emotion):
         surprise()
     elif emotion == 9:
         weather()
+    elif emotion == 10:
+        dead()
     else:
         nother()
         
