@@ -7,6 +7,23 @@ import sys
 import os
 import re
 
+'''
+#adafruit
+import Adafruit_PCA9685
+robot_handle = Adafruit_PCA9685.PCA9685()
+servoMin = 150
+servoMax = 550
+def map(value, min_angle, max_angle, min_pulse, max_pulse):
+    angle_range = max_angle-min_angle
+    pulse_range = max_pulse-min_pulse
+    scale_factor = float(angle_range)/float(pulse_range)
+    return min_pulse+(value/scale_factor)
+
+def set_angle(channel, angle):
+    pulse = int(map(angle,0,180,servoMin,servoMax))
+    robot_handle.set_pwm_freq(50)
+'''
+
 e = "\xff\xff\xff"
 
 LF = 4 #left flap
@@ -129,7 +146,7 @@ def happy():
         set_angles(lf=lfmax, lt=ltmax/2, rf=rfmin, rt=rtmax/2, nk=nkst)
         time.sleep(0.5)
     time.sleep(1)
-  
+    
 def angry():
     print("animation: angry")
     set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=(ltmax/4)*3, rf=rfmin + (rfmax-rfmin)/2, rt=rtmax/4, nk=nkmin) 
@@ -255,3 +272,6 @@ def music():
     p = multiprocessing.Process(target=display, args=([51,52,53], ))
     p.start()
     time.sleep(1)
+
+
+
