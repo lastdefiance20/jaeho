@@ -232,7 +232,7 @@ def surprise():
     time.sleep(1)
 
 
-def other():
+def nother():
     print("animation: other")
     set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst+20)
     p = multiprocessing.Process(target=display, args=([13,14,15,16,17,18,19], ))
