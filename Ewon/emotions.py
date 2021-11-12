@@ -8,5 +8,6 @@ emotions =  [   ['default'],
                 ['surprise', 'exited', 'surprised', '놀랍다', '신기하다'],
                 ['nother'],
                 ['weather', '날씨'],
-                ['dead', '죽은척하기']
+                ['dead', '죽은척하기'],
+                ['hello', '안녕', '안녕하세요', '좋은 아침']
             ]
