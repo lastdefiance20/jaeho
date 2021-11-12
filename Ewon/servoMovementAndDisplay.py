@@ -142,7 +142,7 @@ def happy():
     p.start()
     for i in range(0,2):
         set_angles(lf=lfmin, lt=ltmax/2, rf=rfmax, rt=rtmax/2, nk=nkst)
-        time.sleep(0.5)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                `
+        time.sleep(0.5)
         set_angles(lf=lfmax, lt=ltmax/2, rf=rfmin, rt=rtmax/2, nk=nkst)
         time.sleep(0.5)
     time.sleep(1)
