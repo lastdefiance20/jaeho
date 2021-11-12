@@ -7,23 +7,6 @@ import sys
 import os
 import re
 
-'''
-#adafruit
-import Adafruit_PCA9685
-robot_handle = Adafruit_PCA9685.PCA9685()
-servoMin = 150
-servoMax = 550
-def map(value, min_angle, max_angle, min_pulse, max_pulse):
-    angle_range = max_angle-min_angle
-    pulse_range = max_pulse-min_pulse
-    scale_factor = float(angle_range)/float(pulse_range)
-    return min_pulse+(value/scale_factor)
-
-def set_angle(channel, angle):
-    pulse = int(map(angle,0,180,servoMin,servoMax))
-    robot_handle.set_pwm_freq(50)
-'''
-
 e = "\xff\xff\xff"
 
 LF = 4 #left flap
@@ -156,7 +139,7 @@ def angry():
    
 def listen():
     print("animation: listen")
-    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst+5)
+    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst)
     p = multiprocessing.Process(target=display, args=([13,14,15,16,17,18,19], ))
     p.start()
     time.sleep(1)
@@ -182,7 +165,6 @@ def default():
         time.sleep(0.5)
         set_angles(lf=lfmax, lt=ltmax, rf=rfmax, rt=rtmin, nk=nkst)
         time.sleep(0.5)
-        
 def random4():
     set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmax, nk = nkst)
     p = multiprocessing.Process(target=display, args=([5,4,3,2,1,0], ))
@@ -203,75 +185,15 @@ def zero():
 
 def fear():
     print("animation: fear")
-    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmin, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkmin)
-    p = multiprocessing.Process(target=display, args=([30,31,32,33,34,35,36], ))
-    p.start()
-    time.sleep(1)
-
+    angry()
 
 def disgust():
     print("animation: disgust")
-    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmin, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst)
-    p = multiprocessing.Process(target=display, args=([24,25,26,27,28,29], ))
-    p.start()
-    time.sleep(1)
-
-
+    angry()
 
 def surprise():
     print("animation: surprise")
-    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=(ltmax/4)*3, rf=rfmin + (rfmax-rfmin)/2, rt=rtmax/4, nk = nkmin)
-    p = multiprocessing.Process(target=display, args=([37,38,39,40,41,42], ))
-    p.start()
-    for i in range(0,2):
-        set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=(ltmax/4)*3+5, rf=rfmin + (rfmax-rfmin)/2, rt=rtmax/4-5, nk = nkst+5)
-        time.sleep(0.5)
-        set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=(ltmax/4)*3, rf=rfmin + (rfmax-rfmin)/2, rt=rtmax/4, nk = nkst+5)
-        time.sleep(0.5)
-    time.sleep(1)
-
-
-def nother():
-    print("animation: other")
-    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst)
-    p = multiprocessing.Process(target=display, args=([13,14,15,16,17,18,19], ))
-    p.start()
-    time.sleep(1)
-    
-def weather():
-    print("animation: weather")
-    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst+5)
-    p = multiprocessing.Process(target=display, args=([49,50,49,50,49,50,49,50], ))
-    p.start()
-    time.sleep(1)
-    
-def dead():
-    print("animation: dead")
-    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax-90, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin+90, nk = nkst+5)
-    p = multiprocessing.Process(target=display, args=([43], ))
-    p.start()
-    time.sleep(1)
-    
-def hello():
-    print("animation: hello")
-    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkmin)
-    p = multiprocessing.Process(target=display, args=([24,25,26], ))
-    p.start()
-    time.sleep(1)
-
-def google():
-    print("animation: google")
-    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst)
-    p = multiprocessing.Process(target=display, args=([45,46,47,48], ))
-    p.start()
-    time.sleep(1)
-
-def music():
-    print("animation: music")
-    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst-5)
-    p = multiprocessing.Process(target=display, args=([51,52,53], ))
-    p.start()
-    time.sleep(1)
+    angry()
 
 
 

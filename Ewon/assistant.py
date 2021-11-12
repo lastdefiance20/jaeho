@@ -44,7 +44,7 @@ except SystemError:
     
 #new imports
 import multiprocessing
-from servoMovementAndDisplay import default, init, listen, happy, sad, angry, fear, disgust, surprise, nother, weather, dead, hello, google, music
+from servoMovementAndDisplay import default, init, listen, happy, sad, angry, fear, disgust, surprise
 import threading
 
 ASSISTANT_API_ENDPOINT = 'embeddedassistant.googleapis.com'
@@ -68,27 +68,15 @@ def animateServosAndDisplay(emotion):
         happy()
     elif emotion == 3: #sad
         sad()
-    elif emotion == 4: #angry
+    elif emotion == 4:
         angry()
-    elif emotion == 5: 
+    elif emotion == 5:
         fear()
     elif emotion == 6:
         disgust()
     elif emotion == 7:
         surprise()
-    elif emotion == 9:
-        weather()
-    elif emotion == 10:
-        dead()
-    elif emotion == 11:
-        hello()
-    elif emotion == 12:
-        google()
-    elif emotion == 13:
-        music()
-    else:
-        nother()
-        
+
 class Animation (threading.Thread):
     def __init__(self, startEmotion):
         init()
@@ -120,7 +108,7 @@ def set_emotion(current_emotion, str):
                         for j in range(len(emotions[i])):
                                 if split.lower() == emotions[i][j]:
                                         return i
-        return 8
+        return 1
     
 
 
@@ -248,7 +236,7 @@ class Assistant():
                             print("Emotion Detected: ", emotions[current_emotion][0])
                     if resp.dialog_state_out.supplemental_display_text:
                         display_text=resp.dialog_state_out.supplemental_display_text
-                        self.logger.info('Response text:' + ''.join(display_text)) # 구글 어시의 응답
+                        self.logger.info('Response text:' + ''.join(display_text))
                     if len(resp.audio_out.audio_data) > 0:
                         self.conversation_stream.write(resp.audio_out.audio_data)
                     if resp.dialog_state_out.conversation_state:
