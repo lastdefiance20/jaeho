@@ -242,7 +242,7 @@ def hello():
     p.start()
     time.sleep(1)
 
-def google():
+def askme():
     print("animation: google")
     set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst)
     p = multiprocessing.Process(target=display, args=([45,46,47,48], ))
