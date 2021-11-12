@@ -156,7 +156,7 @@ def angry():
    
 def listen():
     print("animation: listen")
-    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst)
+    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst+20)
     p = multiprocessing.Process(target=display, args=([13,14,15,16,17,18,19], ))
     p.start()
     time.sleep(1)
@@ -203,22 +203,38 @@ def zero():
 
 def fear():
     print("animation: fear")
-    angry()
+    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmin, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkmin)
+    p = multiprocessing.Process(target=display, args=([30,31,32,33,34,35,36], ))
+    p.start()
+    time.sleep(1)
 
 
 def disgust():
     print("animation: disgust")
-    angry()
+    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmin, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkmin)
+    p = multiprocessing.Process(target=display, args=([24,25,26,27,28,29], ))
+    p.start()
+    time.sleep(1)
+
 
 
 def surprise():
     print("animation: surprise")
     angry()
+    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=(ltmax/4)*3, rf=rfmin + (rfmax-rfmin)/2, rt=rtmax/4, nk = nkmin)
+    p = multiprocessing.Process(target=display, args=([37,38,39,40,41,42], ))
+    p.start()
+    for i in range(0,2):
+        set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=(ltmax/4)*3+10, rf=rfmin + (rfmax-rfmin)/2, rt=rtmax/4-10, nk = nkmin+20)
+        time.sleep(0.5)
+        set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=(ltmax/4)*3, rf=rfmin + (rfmax-rfmin)/2, rt=rtmax/4, nk = nkmin+20)
+        time.sleep(0.5)
+    time.sleep(1)
 
 
 def other():
     print("animation: other")
-    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst)
+    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin, nk = nkst+20)
     p = multiprocessing.Process(target=display, args=([13,14,15,16,17,18,19], ))
     p.start()
     time.sleep(1)
