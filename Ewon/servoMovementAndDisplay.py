@@ -220,7 +220,6 @@ def disgust():
 
 def surprise():
     print("animation: surprise")
-    angry()
     set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=(ltmax/4)*3, rf=rfmin + (rfmax-rfmin)/2, rt=rtmax/4, nk = nkmin)
     p = multiprocessing.Process(target=display, args=([37,38,39,40,41,42], ))
     p.start()
@@ -248,7 +247,7 @@ def weather():
     
 def dead():
     print("animation: dead")
-    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax+20, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin-20, nk = nkst+5)
+    set_angles(lf=lfmin + (lfmax-lfmin)/2, lt=ltmax-90, rf=rfmin + (rfmax-rfmin)/2, rt=rtmin+90, nk = nkst+5)
     p = multiprocessing.Process(target=display, args=([43], ))
     p.start()
     time.sleep(1)
