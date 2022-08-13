@@ -1,7 +1,7 @@
 # Jaeho
 ### 2021년도 숭실대 AI융합 경진대회 장려상
 
-![jaeho_intro](./jaeho_intro.jpg)
+![jaeho_intro](./jaeho_intro.png)
 
 ---
 
